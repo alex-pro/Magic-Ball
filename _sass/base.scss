@@ -1,0 +1,17 @@
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+html, button, input, select, textarea { font-family: sans-serif; }
+a:hover, a:active { outline: 0; }
+b, strong { font-weight: bold; }
+
+menu, ol, ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
