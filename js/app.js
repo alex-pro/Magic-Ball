@@ -7,12 +7,13 @@ var App = React.createClass({
 
   getAnswer() {
     var answer = answers[parseInt(Math.random() * (answers.length))];
-    this.refs.answers.value += answer + '\n';
+    this.refs.answers.value = answer + '\n' + this.refs.answers.value;
+    this.refs.question.value = '';
   },
 
   shake() {
     var action = actions[parseInt(Math.random() * (actions.length))];
-    this.refs.answers.value += action + '\n';
+    this.refs.answers.value = action + '\n' + this.refs.answers.value;
     this.sleep(this.getAnswer, 2000);
   },
 
@@ -20,8 +21,9 @@ var App = React.createClass({
     return (
       <div>
         <h1>Запитуй, не вагайся!</h1>
-        <input ref='question' type='text' />
-        <button ref='ask' onClick={this.shake}>Запитати</button>
+        <form action='#' onSubmit={this.shake}>
+          <input ref='question' type='text' autofocus/>
+        </form>
         <textarea ref='answers' rows='30'></textarea>
       </div>
     );
