@@ -10,7 +10,7 @@ title: Your awesome title
 email: a.partitskiy@gmail.com
 description: Description
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://alex-pro.github.io/Magic_ball" # the base hostname & protocol for your site
+url: "https://alex-pro.github.io/magic-ball" # the base hostname & protocol for your site
 twitter_username: jekyllrb
 github_username:  jekyll
 
