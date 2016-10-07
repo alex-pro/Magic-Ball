@@ -5,26 +5,35 @@ var App = React.createClass({
     }, wait);
   },
 
-  getAnswer() {
-    var answer = answers[parseInt(Math.random() * (answers.length))];
-    this.refs.answers.value = answer + '\n' + this.refs.answers.value;
-    this.refs.question.value = '';
+  newAnswer(value) {
+    var li = document.createElement('li');
+    li.className = 'answer';
+    li.innerHTML = value  ;
+    return li;
   },
 
-  shake() {
+  getAnswer() {
+    var answer = answers[parseInt(Math.random() * (answers.length))];
+    document.getElementById('answers').insertBefore(this.newAnswer(answer), document.getElementById('answers').firstChild);
+    document.getElementById('question').value = '';
+  },
+
+  shake(event) {
+    event.preventDefault();
     var action = actions[parseInt(Math.random() * (actions.length))];
-    this.refs.answers.value = action + '\n' + this.refs.answers.value;
+    document.getElementById('answers').insertBefore(this.newAnswer(action), document.getElementById('answers').firstChild);
     this.sleep(this.getAnswer, 2000);
   },
 
   render: function() {
     return (
       <div>
-        <h1>Запитуй, не вагайся!</h1>
-        <form action='#' onSubmit={this.shake}>
-          <input ref='question' type='text' autofocus/>
+        <h1>Спрашивай, не стесняйся!</h1>
+        <form onSubmit={this.shake}>
+          <input id='question' type='text' autofocus />
         </form>
-        <textarea ref='answers' rows='30'></textarea>
+        <ul id='answers' className='answers'>
+        </ul>
       </div>
     );
   }
