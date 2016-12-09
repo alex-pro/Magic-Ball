@@ -44,11 +44,11 @@ var App = React.createClass({
     return (
       <div>
         <h1>Спрашивай, не стесняйся!</h1>
+        <ul id='answers' className='answers'>
+        </ul>
         <form onSubmit={this.shake}>
           <input id='question' type='text' onBlur={this.focusInput} />
         </form>
-        <ul id='answers' className='answers'>
-        </ul>
       </div>
     );
   }
