@@ -35,12 +35,17 @@ var App = React.createClass({
     this.sleep(this.getAnswer, 2000);
   },
 
+  focusInput(event) {
+    event.preventDefault();
+    question.focus();
+  },
+
   render: function() {
     return (
       <div>
         <h1>Спрашивай, не стесняйся!</h1>
         <form onSubmit={this.shake}>
-          <input id='question' type='text' />
+          <input id='question' type='text' onBlur={this.focusInput} />
         </form>
         <ul id='answers' className='answers'>
         </ul>
@@ -53,8 +58,3 @@ ReactDOM.render(
   <App />,
   document.getElementById('root')
 );
-
-var question = document.getElementById('question');
-question.addEventListener('blur', function( event ) {
-  event.target.focus();
-}, true);
